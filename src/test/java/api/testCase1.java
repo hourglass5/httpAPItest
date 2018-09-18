@@ -1,17 +1,20 @@
+package api;
+
+import api.Common;
+import api.URLConnectionUtil;
+import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class testCase1 {
 
 
     public String httpResult = null, resultCode = null;
     public static String pathCode = null;
-    GetRequestUrl getRequestUrl = new GetRequestUrl();
+    URLConnectionUtil getRequestUrl = new URLConnectionUtil();
 
     @BeforeClass
     public void beforeclass() {
@@ -24,17 +27,17 @@ public class testCase1 {
         // 用户存量关系
         pathCode = "/userStock/relation";
 
-        Map<String,String> params =  new HashMap<String,String>();
-        params.put("endReturnTime", ""); // 截止日期
-        params.put("uid", ""); // 用户ID
-        params.put("username", ""); // 用户手机号
-        params.put("realName", ""); // 姓名
-        params.put("flag", "1"); // 排序方式
-        params.put("currentpage", "1"); // 当前页
-        params.put("pagesize", "20"); // 每页展示件数
+        // 给接口传递json格式的参数
+        JSONObject paramss = new JSONObject();
+        paramss.put("endReturnTime", ""); // 截止日期
+        paramss.put("uid", ""); // 用户ID
+        paramss.put("username", ""); // 用户手机号
+        paramss.put("realName", ""); // 姓名
+        paramss.put("flag", "1"); // 排序方式
+        paramss.put("currentpage", "1"); // 当前页
+        paramss.put("pagesize", "20"); // 每页展示件数
 
-//        httpResult = hc.doPost("https://120.55.42.27/caifu"+ pathCode, params, "utf-8");
-        httpResult = getRequestUrl.getHttpRespone(pathCode, params);
+        httpResult = getRequestUrl.getHttpRespone(pathCode, paramss);
         System.out.println(httpResult);
         resultCode = Common.getJsonValue(httpResult, "message");
         Assert.assertEquals(resultCode,"获取用户存量关系列表成功");

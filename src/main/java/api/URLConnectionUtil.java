@@ -1,18 +1,18 @@
+package api;
+
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.util.Map;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class GetRequestUrl {
+public class URLConnectionUtil {
 	private String url = "";
 
 	public String geturl() {
 		return url;
 	}
 
-	public String getHttpRespone(String pathCode, Map<String,String> params) throws IOException {
+	public String getHttpRespone(String pathCode, JSONObject paramss) throws IOException {
 		String line = "";
 		String httpResults = "";
 		url = ("http://120.27.13.190:8080/xhjd-report" + pathCode);
@@ -25,9 +25,7 @@ public class GetRequestUrl {
 			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(),"UTF-8");
 
 			// 给接口传递json格式的参数
-			JSONObject array = new JSONObject(params);
-			out.write(array.toString());
-			System.out.println(array);
+			out.write(paramss.toString());
 			out.flush();
 			
 			// 读取响应
