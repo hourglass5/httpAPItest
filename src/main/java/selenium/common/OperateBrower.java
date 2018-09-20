@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class OperateBrower {
     static WebDriver driver;
 
-    public static WebDriver OpenfireFox() throws IOException {
+    public static WebDriver OpenfireFox() {
 //		File firefoxFile = new File("E:\\\\Mozilla Firefox\\\\firefox.exe");
 //		FirefoxBinary binary = new FirefoxBinary(firefoxFile);
 //		driver = new FirefoxDriver(binary, null);
@@ -18,7 +18,7 @@ public class OperateBrower {
         return driver;
     }
 
-    public static void OpenURL(String url) throws InterruptedException {
+    public static void OpenURL(String url) {
         driver.get(url);
         driver.manage().window().maximize();
     }

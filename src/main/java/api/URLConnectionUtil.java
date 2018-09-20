@@ -12,7 +12,7 @@ public class URLConnectionUtil {
 		return url;
 	}
 
-	public String getHttpRespone(String pathCode, JSONObject paramss) throws IOException {
+	public String getHttpRespone(String pathCode, JSONObject paramss) {
 		String line = "";
 		String httpResults = "";
 		url = ("http://120.27.13.190:8080/xhjd-report" + pathCode);
@@ -31,7 +31,7 @@ public class URLConnectionUtil {
 			// 读取响应
 			BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
 			while ((line = reader.readLine()) != null) {
-				httpResults = httpResults + line.toString();
+				httpResults = httpResults + line;
 			}
 			System.out.println(httpResults);
 			reader.close();

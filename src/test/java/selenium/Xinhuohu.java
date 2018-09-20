@@ -18,7 +18,7 @@ public class Xinhuohu {
     private StringBuffer verificationErrors = new StringBuffer();
 
     @BeforeClass
-    public void beforeClass() throws Exception {
+    public void beforeClass() {
 
         // 指定firefox的安装路径
         System.setProperty("webdriver.firefox.bin", "E:\\Mozilla Firefox\\firefox.exe");
@@ -32,7 +32,7 @@ public class Xinhuohu {
 
     }
 
-    public void f() throws Exception {
+    public void f() {
         driver.get(baseUrl);
         /**系统登录**/
         // 账户
@@ -84,7 +84,7 @@ public class Xinhuohu {
     }
 
     @AfterTest
-    public void afterTest() throws Exception {
+    public void afterTest() {
         driver.quit();
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {

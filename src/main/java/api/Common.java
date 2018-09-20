@@ -18,7 +18,7 @@ public class Common {
 		}
 		try {
 			JSONObject obj1 = new JSONObject(JsonString);
-			JsonValue = (String) obj1.getString(JsonId);
+			JsonValue = obj1.getString(JsonId);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

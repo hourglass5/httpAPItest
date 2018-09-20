@@ -30,7 +30,7 @@ public class HttpClientUtil {
             List<NameValuePair> list = new ArrayList<NameValuePair>();
             Iterator<Entry<String, String>> iterator = map.entrySet().iterator();
             while(iterator.hasNext()){
-                Entry<String,String> elem = (Entry<String, String>) iterator.next();
+                Entry<String,String> elem = iterator.next();
                 list.add(new BasicNameValuePair(elem.getKey(),elem.getValue()));
             }
             if(list.size() > 0){
