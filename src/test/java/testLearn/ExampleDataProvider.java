@@ -1,4 +1,4 @@
-package api;
+package testLearn;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class exampleDataProvider {
+public class ExampleDataProvider {
 
     @DataProvider(name = "testData1")
     public Object[][] testData1() {

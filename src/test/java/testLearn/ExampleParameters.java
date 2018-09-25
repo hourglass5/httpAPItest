@@ -1,11 +1,11 @@
-package api;
+package testLearn;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class exampleParameters {
+public class ExampleParameters {
     @BeforeClass
     public void beforeclass() {
         System.out.println("this is befor class");
