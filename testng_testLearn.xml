@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<!--  <groups>
+    <run>
+      <include name="..."/>
+      <exclude name="..."/>
+    </run>
+  </groups>-->
+  <test name="ExampleParameters">
+    <parameter name="name" value="rui" />
+    <parameter name="age" value="18" />
+    <parameter name="sex" value="boy" />
+    <classes>
+      <class name="testLearn.ExampleParameters">
+        <methods>
+          <include name="testParameters"/>
+        </methods>
+      </class>
+    </classes>
+<!--    <packages>
+      <package name="api"/>
+    </packages>-->
+  </test>
+
+  <test name="ExampleDataProvider">
+      <groups>
+          <run>
+              <include name="create" />
+              <exclude name="mix" />
+          </run>
+      </groups>
+      <classes>
+          <class name="testLearn.ExampleDataProvider"/>
+      </classes>
+  </test>
+    <test name="ExampleFactory">
+        <classes>
+            <class name="testLearn.ExampleFactory"/>
+        </classes>
+    </test>
+
+</suite>
