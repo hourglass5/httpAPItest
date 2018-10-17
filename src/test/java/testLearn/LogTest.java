@@ -25,5 +25,6 @@ public class LogTest {
         log.info("111");
         log.debug("222");
         log.warn("333");
+        log.warn("555");
     }
 }
