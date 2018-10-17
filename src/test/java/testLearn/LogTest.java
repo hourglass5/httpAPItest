@@ -2,13 +2,12 @@ package testLearn;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class ExampleParameters {
+public class LogTest {
     private static final Log log = LogFactory.getLog("getLogger");
 
     @BeforeClass
@@ -21,12 +20,10 @@ public class ExampleParameters {
         System.out.println("this is after class");
     }
 
-    @Parameters({"name","age","sex"})
     @Test
-    public void testParameters(String name,int age, String sex) {
-        System.out.println("hahaah");
-        System.out.println(name + age + sex);
+    public void testParameters() {
+        log.info("111");
+        log.debug("222");
+        log.warn("333");
     }
-
-
 }
