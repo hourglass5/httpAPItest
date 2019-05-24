@@ -1,6 +1,6 @@
-package api.xhjdReport;
+package api.spider;
 
-import api.URLConnectionUtil;
+import api.HttpURLConnectionUtil;
 import api.jsonTools.JsonAnalyzing;
 import org.json.JSONObject;
 import org.testng.Assert;
@@ -10,12 +10,12 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class testCase1 {
+public class testCase11 {
 
 
-    public String httpResult = null, resultCode = null;
+    public String httpResult = null, checkResult = null;
     public static String pathCode = null;
-    URLConnectionUtil getRequestUrl = new URLConnectionUtil();
+    HttpURLConnectionUtil getRequestUrl = new HttpURLConnectionUtil();
 
     @BeforeClass
     public void beforeclass() {
@@ -26,22 +26,18 @@ public class testCase1 {
     public void test() throws IOException {
         System.out.println("this is test case");
         // 用户存量关系
-        pathCode = "/userStock/relation";
+        pathCode = "/api/BUserBondBillController/myOpenStore";
 
         // 给接口传递json格式的参数
         JSONObject paramss = new JSONObject();
-        paramss.put("endReturnTime", ""); // 截止日期
-        paramss.put("uid", ""); // 用户ID
-        paramss.put("username", ""); // 用户手机号
-        paramss.put("realName", ""); // 姓名
-        paramss.put("flag", "1"); // 排序方式
-        paramss.put("currentpage", "1"); // 当前页
-        paramss.put("pagesize", "20"); // 每页展示件数
+        paramss.put("userId", "1087239559747469312"); // 用户id
 
         httpResult = getRequestUrl.getHttpRespone(pathCode, paramss);
         System.out.println(httpResult);
-        resultCode = JsonAnalyzing.getStringValue(httpResult, "message");
-        Assert.assertEquals(resultCode,"获取用户存量关系列表成功");
+        String data = JsonAnalyzing.getObjectValue(httpResult, "data");
+        System.out.println(data);
+        checkResult = JsonAnalyzing.getStringValue(data, "storeName");
+        Assert.assertEquals(checkResult,"糯米糯米你不开花");
 
     }
 
