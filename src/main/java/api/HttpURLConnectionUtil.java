@@ -54,7 +54,6 @@ public class HttpURLConnectionUtil {
 			while ((line = reader.readLine()) != null) {
 				httpResults = httpResults + line;
 			}
-			System.out.println(httpResults);
 			reader.close();
 			// 断开连接会释放被一个connection占有的资源，这样它们就能被关闭或再次使用。
 			connection.disconnect();

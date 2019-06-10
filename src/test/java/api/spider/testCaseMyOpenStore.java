@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class testCase11 {
+public class testCaseMyOpenStore {
 
 
     public String httpResult = null, checkResult = null;
@@ -25,7 +25,7 @@ public class testCase11 {
     @Test
     public void test() throws IOException {
         System.out.println("this is test case");
-        // 用户存量关系
+        // 获取开店信息
         pathCode = "/api/BUserBondBillController/myOpenStore";
 
         // 给接口传递json格式的参数

@@ -2,8 +2,12 @@ package api.other;
 
 import java.io.IOException;
 
+import api.HttpURLConnectionUtil;
+import api.jsonTools.JsonAnalyzing;
 import org.apache.http.HttpResponse;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+import org.testng.Assert;
 
 public class MultiThreadsDemo {
     public static void main(String[] args) throws InterruptedException {
@@ -23,18 +27,17 @@ public class MultiThreadsDemo {
         }
         @Override
         public void run() {
-            String url = "http://api.fixer.io/latest?base=CNY";
-            //使用的是之前接口自动化的http请求框架，不清楚可以参考之前的文章
-//            HttpResponse response = new HttpRequest(url)
-//                    .setHeaders(null)
-//                    .setParams(null)
-//                    .doGet();
-//            try {
-//                String result = EntityUtils.toString(response.getEntity());
-//                System.out.println("Thread " + name + " response: " + result);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+
+            // 并发接口（获取店铺信息）
+            String pathCode = "/api/BUserBondBillController/myOpenStore";
+
+            // 给接口传递json格式的参数
+            JSONObject paramss = new JSONObject();
+            paramss.put("userId", "1087239559747469312"); // 用户id
+
+            HttpURLConnectionUtil getRequestUrl = new HttpURLConnectionUtil();
+            String httpResult = getRequestUrl.getHttpRespone(pathCode, paramss);
+            System.out.println(httpResult);
         }
     }
 }

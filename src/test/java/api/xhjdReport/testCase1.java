@@ -37,6 +37,7 @@ public class testCase1 {
         paramss.put("flag", "1"); // 排序方式
         paramss.put("currentpage", "1"); // 当前页
         paramss.put("pagesize", "20"); // 每页展示件数
+        paramss.put("qqq", "10"); // 每页展示件数
 
         httpResult = getRequestUrl.getHttpRespone(pathCode, paramss);
         System.out.println(httpResult);
